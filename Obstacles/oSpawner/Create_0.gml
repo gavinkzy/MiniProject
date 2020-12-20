@@ -1,0 +1,1 @@
+obstacles[0] = oObstacle1;

@@ -1,0 +1,1 @@
+hasSpawnedPlatforms = false;
