@@ -10,7 +10,8 @@ enum stages
 {
 	one,
 	two,
-	three
+	three,
+	four
 }
 
 currentStage = stages.one;

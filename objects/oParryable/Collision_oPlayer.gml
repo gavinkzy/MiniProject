@@ -1,4 +1,4 @@
-if (!oPlayer.playerPressedParry) && !(StateManager.currentState == states.powerup)
+if (!oPlayer.playerPressedParry) && (StateManager.currentState != states.powerup)
 {
 	with (oPlayer)
 	{

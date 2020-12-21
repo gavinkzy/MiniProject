@@ -1,4 +1,4 @@
-if !(StateManager.currentState == states.powerup)
+if (StateManager.currentState != states.powerup)
 {
 	with (oPlayer)
 	{

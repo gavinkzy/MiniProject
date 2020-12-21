@@ -10,7 +10,7 @@ else
 	playerPressedMove = false;
 }
 
-if (playerPressedMove)
+if (playerPressedMove) && (StateManager.currentState != states.dead)
 {
 	var spddirection = key_right - key_left;
 	hsp = spddirection * movespd;

@@ -1,10 +1,10 @@
-if !(StateManager.currentState == states.powerup)
+if (StateManager.currentState != states.powerup) && (StateManager.currentState != states.dead)
 {
 	StateManager.currentState = states.dead;
 	with (oPlayer)
 	{
-		vsp = -1;
-		hsp = 1;
+		vsp = -2.5;
+		hsp = 2;
 	}
 }
 else

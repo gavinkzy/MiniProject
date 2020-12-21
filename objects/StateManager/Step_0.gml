@@ -1,7 +1,7 @@
 timeSinceBegun += 0.01;
 if (currentState != states.dead)
 {
-	vspSet = vspSet + (min(2, vspSet * 0.0005)) * spdMultiplier;
+	vspSet = max(-2.5, vspSet - 0.001 * timeSinceBegun) * spdMultiplier;
 	distanceMoved -= vspSet * spdMultiplier;
 }
 
@@ -18,6 +18,11 @@ if (distanceMoved > 1000)
 if (distanceMoved > 2000)
 {
 	currentStage = stages.three;
+}
+
+if (distanceMoved > 5000)
+{
+	currentStage = stages.four;
 }
 
 if (currentComboCount >= comboThreshold)
@@ -48,7 +53,7 @@ switch currentState
 		{
 			if (!playerPressedParry) && (!parrySuccess) && (!gotHurt) sprite_index = sFalling;	
 		}
-		spdMultiplier = 2;
+		spdMultiplier = 5;
 		layer_vspeed("Backgrounds_1", vspSet - 0.05);
 		ScreenShake(0.5, 1);
 		if (!triggered)
@@ -74,6 +79,6 @@ switch currentState
 		with (oPlayer)
 		{
 			sprite_index = sDead;
-			grv = 0.05;
+			grv = 0.09;
 		}
 }
