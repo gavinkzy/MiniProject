@@ -1,9 +1,21 @@
-if (oPlayer.distanceTravelled > 1000)
+timeSinceBegun += 0.01;
+if (currentState != states.dead)
+{
+	vspSet = vspSet + (min(2, vspSet * 0.0005)) * spdMultiplier;
+	distanceMoved -= vspSet * spdMultiplier;
+}
+
+if (currentState != states.dead)
+{
+	spawningActive = true;	
+}
+
+if (distanceMoved > 1000)
 {
 	currentStage = stages.two;
 }
 
-if (oPlayer.distanceTravelled > 2000)
+if (distanceMoved > 2000)
 {
 	currentStage = stages.three;
 }
@@ -14,9 +26,14 @@ if (currentComboCount >= comboThreshold)
 	currentState = states.powerup;
 }
 
+if (oPlayer.hp <= 0)
+{
+	currentState = states.dead;
+}
+
 switch currentState
 {
-	default:
+	default: currentState = states.normal;
 	break;
 	case states.normal:
 		with (oPlayer)
@@ -24,15 +41,15 @@ switch currentState
 			if (!playerPressedParry) && (!parrySuccess) && (!gotHurt) sprite_index = sFalling;	
 		}
 		spdMultiplier = 1;
-		layer_vspeed("Backgrounds_1", vspAmount - 0.05);
+		layer_vspeed("Backgrounds_1", vspSet - 0.05);
 		break;
 	case states.powerup:
 		with (oPlayer)
 		{
-		if (!playerPressedParry) && (!parrySuccess) && (!gotHurt) sprite_index = sFalling;	
+			if (!playerPressedParry) && (!parrySuccess) && (!gotHurt) sprite_index = sFalling;	
 		}
 		spdMultiplier = 2;
-		layer_vspeed("Backgrounds_1", vspAmount - 0.05);
+		layer_vspeed("Backgrounds_1", vspSet - 0.05);
 		ScreenShake(0.5, 1);
 		if (!triggered)
 		{
@@ -45,7 +62,18 @@ switch currentState
 		{
 			if (!playerPressedParry) && (!parrySuccess) && (!gotHurt) sprite_index = sFalling;	
 		}
-		spdMultiplier = 0.1;
-		layer_vspeed("Backgrounds_1", vspAmount - 0.05);
+		spdMultiplier = 0.10;
+		layer_vspeed("Backgrounds_1", vspSet - 0.05);
 		break;
+	case states.dead:
+		spdMultiplier = 0;
+		vspSet = 0;
+		hspSet = 0;
+		spawningActive = false;
+		layer_vspeed("Backgrounds_1", 0);
+		with (oPlayer)
+		{
+			sprite_index = sDead;
+			grv = 0.05;
+		}
 }

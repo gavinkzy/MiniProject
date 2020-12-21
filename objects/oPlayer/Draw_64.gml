@@ -1,7 +1,7 @@
 DrawSetText(c_white, fDefault, fa_center, fa_top);
 var xx = display_get_gui_width()/2;
 var yy = display_get_gui_height()/2 - 300;
-draw_text(xx, yy, string(distanceTravelled) + "m" );
+draw_text(xx, yy, string(round(StateManager.distanceMoved)) + "m" );
 draw_text(xx, yy-60, "HP: " +string(hp));
 draw_text(xx, yy-40, "Combo Count: " +string(StateManager.currentComboCount));
 

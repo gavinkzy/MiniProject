@@ -1,5 +1,5 @@
-vsp = -1;
-hsp = 0;
+vsp = StateManager.vspSet;
+hsp = StateManager.hspSet;
 
 vspMultiplier = 1;
 hspMultiplier = 1;

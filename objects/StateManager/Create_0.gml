@@ -2,7 +2,8 @@ enum states
 {
 	normal,
 	powerup,
-	slowMotion
+	slowMotion,
+	dead
 }
 
 enum stages
@@ -14,12 +15,17 @@ enum stages
 
 currentStage = stages.one;
 
+scoreSpdMultiplier = 0.006;
+
 //for slowmo
 spdMultiplier = 1;
 
 //obstacles
-hspAmount = 0;
-vspAmount = 0;
+vspSet = -1;
+hspSet = 0;
+distanceMoved = 0;
+
+spawningActive = true;
 
 comboThreshold = 10;
 currentComboCount = 0;
@@ -27,3 +33,5 @@ currentComboCount = 0;
 currentState = states.normal;
 
 triggered = false;
+
+timeSinceBegun = 0;

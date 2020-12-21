@@ -1,26 +1,45 @@
-var xx = irandom_range(0, room_width);
-var yy = y;
+var xx = irandom_range(0+obstacleWidth/2, room_width-obstacleWidth/2);
+var yy = y-30;
 
-if (!hasSpawned)
+//spawning by distance
+if (StateManager.distanceMoved >= lastCheckPoint + 200)
 {
-	instance_create_layer(xx,yy, "Obstacles", obstacles[irandom_range(0,array_length(obstacles)-1)])
-	hasSpawned = true;
-	alarm[0] = max(10, room_speed - (oPlayer.distanceTravelled * 0.05)) ;
-	show_debug_message("Spawned obstacle at" + string(xx) + string(yy));
+	hasSpawned = false;
+	hasSpawnedPlatforms = false;
+	lastCheckPoint = StateManager.distanceMoved;
 }
 
-if (!hasSpawnedPlatforms)
+if (StateManager.spawningActive)
 {
-	startingXPos = oWallLeft.leftWall.x + 32 - 1;
-	endingXPos = oWallRight.rightWall.x;
-	lastSpawnXPos = startingXPos;
-	var numberOfTiles = ceil((endingXPos - startingXPos)/sprite_get_width(sBreakableTile));
-	show_debug_message(numberOfTiles);
-	for (i = 0;  i < numberOfTiles; i++)
+	if (!hasSpawned)
 	{
-		instance_create_layer(lastSpawnXPos,y+30,"Platforms",oBreakableTile);
-		lastSpawnXPos = lastSpawnXPos + sprite_get_width(sBreakableTile);
+		instance_create_layer(xx,yy, "Obstacles", obstacles[irandom_range(0,array_length(obstacles)-1)])
+		hasSpawned = true;
+		show_debug_message("Spawned obstacle at" + string(xx) + string(yy));
 	}
-	alarm[1] = max(150, room_speed - (oPlayer.distanceTravelled * 0.05)) ;
-	hasSpawnedPlatforms = true;
+
+	if (!hasSpawnedPlatforms)
+	{
+		startingXPos = (inst_2879C075).x + 32;
+		endingXPos = (inst_149E7C39).x;
+		var numberOfTiles = ceil((endingXPos - startingXPos)/sprite_get_width(sBreakableTile));
+		var posChosen = irandom_range(3, numberOfTiles-3);
+		show_debug_message(string(posChosen));
+		lastSpawnXPos = startingXPos;
+		for (i = 0;  i < numberOfTiles; i++)
+		{
+			show_debug_message("Current i:" +string(i));
+			if (i < posChosen + irandom_range(1,3)) && (i > posChosen - irandom_range(1,3))
+			{
+				instance_create_layer(lastSpawnXPos,y+20,"Platforms",oBreakableTile);
+				show_debug_message("Spawned at " +string(lastSpawnXPos));
+			}
+			else
+			{
+				instance_create_layer(lastSpawnXPos,y+20,"Platforms",oPlatform);
+			}
+			lastSpawnXPos = lastSpawnXPos + sprite_get_width(sPlatform);
+			hasSpawnedPlatforms = true;
+		}
+	}
 }

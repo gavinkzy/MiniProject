@@ -1,8 +1,8 @@
 hsp = 0;
 _airresistance = 0.5;
 movespd = 2.5;
-
-distanceTravelled = 0;
+vsp = 0;
+grv = 0;
 
 playerPressedMove = false;
 playerPressedParry = false;

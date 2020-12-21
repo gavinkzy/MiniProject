@@ -41,11 +41,5 @@ x = x + hsp;
 
 if (hsp != 0) image_xscale = sign(hsp);
 
-//Calculate Score
-distanceTravelled += ceil(1 * StateManager.spdMultiplier);
-
-//restart if hp <0
-if (hp <= 0)
-{
-	game_restart();	
-}
+vsp = vsp + grv;
+y = y + vsp;
