@@ -30,7 +30,7 @@ if (StateManager.spawningActive)
 	{
 		instance_create_layer(xx,yy, "Obstacles", obstacles[irandom_range(0,array_length(obstacles)-1)])
 		hasSpawned = true;
-		show_debug_message("Spawned obstacle at" + string(xx) + string(yy));
+		show_debug_message("Spawned obstacle at" + string(xx) +" " + string(yy));
 	}
 
 	if (!hasSpawnedPlatforms)

@@ -5,7 +5,7 @@ if (bbox_bottom < 0)
 if (StateManager.currentState != states.preGame)
 {
 	vsp = StateManager.vspSet;
-	hsp = StateManager.hspSet;
+	hsp = -2;
 }
 
 x = x + hsp;

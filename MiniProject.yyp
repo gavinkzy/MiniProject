@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"sFalling","path":"sprites/sFalling/sFalling.yy",},"order":2,},
+    {"id":{"name":"oFakeSpawner","path":"objects/oFakeSpawner/oFakeSpawner.yy",},"order":15,},
     {"id":{"name":"sNonParryable","path":"sprites/sNonParryable/sNonParryable.yy",},"order":9,},
     {"id":{"name":"sDead","path":"sprites/sDead/sDead.yy",},"order":0,},
     {"id":{"name":"DrawSetText","path":"scripts/DrawSetText/DrawSetText.yy",},"order":0,},
@@ -31,6 +32,8 @@
     {"id":{"name":"oNonParryable","path":"objects/oNonParryable/oNonParryable.yy",},"order":3,},
     {"id":{"name":"sParryable","path":"sprites/sParryable/sParryable.yy",},"order":6,},
     {"id":{"name":"oHoneyJar","path":"objects/oHoneyJar/oHoneyJar.yy",},"order":12,},
+    {"id":{"name":"oFakeObstacle","path":"objects/oFakeObstacle/oFakeObstacle.yy",},"order":14,},
+    {"id":{"name":"sHealth","path":"sprites/sHealth/sHealth.yy",},"order":15,},
     {"id":{"name":"sBg","path":"sprites/sBg/sBg.yy",},"order":7,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],

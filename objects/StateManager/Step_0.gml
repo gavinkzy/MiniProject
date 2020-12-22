@@ -36,14 +36,14 @@ if (currentState != states.winningState)
 		oSpawner.spawnDistInterval = 150;
 	}
 
-	if (distanceMoved > 2000)
+	if (distanceMoved > 5000)
 	{
 		currentStage = stages.three;
 		criticalStageChangeV = 2000;
 		oSpawner.spawnDistInterval = 100;
 	}
 
-	if (distanceMoved > 3000)
+	if (distanceMoved > 10000)
 	{
 		currentStage = stages.four;
 		criticalStageChangeV = 3000;
@@ -51,7 +51,7 @@ if (currentState != states.winningState)
 	}
 }
 
-if (distanceMoved > 5000)
+if (distanceMoved > 15000)
 {
 	currentState = states.winningState;
 }
@@ -104,6 +104,7 @@ switch currentState
 		}
 		spdMultiplier = 1;
 		layer_vspeed("Backgrounds_1", vspSet - 0.30);
+		layer_hspeed("Backgrounds_1", -1);
 		spawningActive = true;
 		break;
 	case states.powerup:
@@ -116,7 +117,7 @@ switch currentState
 		ScreenShake(0.5, 1);
 		if (!triggered)
 		{
-			alarm[0] = 5 * room_speed;
+			alarm[0] = 1 * room_speed;
 			triggered = true;
 		}
 		break;
@@ -151,7 +152,8 @@ switch currentState
 		}
 		break;
 	case states.almostDead:
-		show_debug_message("Almost dead");
+		break;
 	case states.winningState:
 		spawningActive = false;
+		break;
 }

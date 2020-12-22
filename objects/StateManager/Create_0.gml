@@ -31,7 +31,7 @@ distanceMoved = 0;
 
 spawningActive = false;
 
-comboThreshold = 10;
+comboThreshold = 2;
 currentComboCount = 0;
 
 currentState = states.preGame;
