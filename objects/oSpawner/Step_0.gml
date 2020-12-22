@@ -1,4 +1,4 @@
-var xx = irandom_range(0+obstacleWidth/2, room_width-obstacleWidth/2);
+var xx = irandom_range(32+obstacleWidth/2, room_width-obstacleWidth/2-32);
 var yy = y-30;
 
 //spawning by distance

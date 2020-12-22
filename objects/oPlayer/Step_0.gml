@@ -40,6 +40,7 @@ if (!isDead)
 var nearestPlatform = instance_nearest(x,y,oPlatform);
 if (place_meeting(x,y+1,oPlatform)) && (!isDead) && (!isPowerUp) && (y<nearestPlatform.y)
 {
+	oPlayer.hp = -1;
 	StateManager.currentState = states.dead;
 	deathBounceCount -= 1;
 	vsp = bounceYVelo;

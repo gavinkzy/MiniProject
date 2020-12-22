@@ -34,6 +34,7 @@ if (StateManager.currentState != states.dead)
 				show_debug_message("Gained slowmo ability.");
 				break;
 		}
+		ScreenShake(3,5);
 		instance_destroy(self);
 	}
 }

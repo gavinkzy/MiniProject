@@ -34,6 +34,7 @@ else
 				}
 				x = x + 1;
 				ScreenShake(1,2);
+				isMoving = true;
 			}
 			else
 			{
@@ -44,6 +45,7 @@ else
 						if (StateManager.currentState != states.preGame) StateManager.currentState = states.dead;
 					}
 				}
+				isMoving = false;
 			}
 			break;
 		case stages.three:
@@ -57,6 +59,7 @@ else
 				}
 				x = x + 1;
 				ScreenShake(1,2);
+				isMoving = true;
 			}
 			else
 			{
@@ -67,6 +70,7 @@ else
 						if (StateManager.currentState != states.preGame) StateManager.currentState = states.dead;
 					}
 				}
+				isMoving = false;
 			}
 			break;
 		case stages.four:
@@ -80,6 +84,7 @@ else
 				}
 				x = x + 1;
 				ScreenShake(1,2);
+				isMoving = true;
 			}
 			else
 			{
@@ -90,6 +95,7 @@ else
 						if (StateManager.currentState != states.preGame) StateManager.currentState = states.dead;
 					}
 				}
+				isMoving = false;
 			}
 	}
 }
