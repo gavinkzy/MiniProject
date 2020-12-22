@@ -5,7 +5,7 @@ switch StateManager.currentStage
 		{
 			if (playerPressedMove) && (place_meeting(x+1, y, other) || place_meeting(x-1, y, other))
 			{
-				hp = 0;
+				StateManager.currentState = states.dead;
 			}
 		}
 		break;
@@ -27,7 +27,7 @@ switch StateManager.currentStage
 			{
 				if (playerPressedMove) && (place_meeting(x+1, y, other) || place_meeting(x-1, y, other))
 				{
-					hp = 0;
+					StateManager.currentState = states.dead;
 				}
 			}
 		}
@@ -50,7 +50,7 @@ switch StateManager.currentStage
 			{
 				if (playerPressedMove) && (place_meeting(x+1, y, other) || place_meeting(x-1, y, other))
 				{
-					hp = 0;
+					StateManager.currentState = states.dead;
 				}
 			}
 		}
@@ -73,7 +73,7 @@ switch StateManager.currentStage
 			{
 				if (playerPressedMove) && (place_meeting(x+1, y, other) || place_meeting(x-1, y, other))
 				{
-					hp = 0;
+					StateManager.currentState = states.dead;
 				}
 			}
 		}

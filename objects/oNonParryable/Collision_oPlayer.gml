@@ -1,18 +1,21 @@
-if (StateManager.currentState != states.powerup)
+if (StateManager.currentState != states.dead)
 {
-	with (oPlayer)
+	if (StateManager.currentState != states.powerup)
 	{
-		hp -= 1;
-		sprite_index = sGotHurt;
-		gotHurt = true;
+		with (oPlayer)
+		{
+			hp -= 1;
+			sprite_index = sGotHurt;
+			gotHurt = true;
+		}
 	}
-}
-else
-{
-	show_debug_message("Player did not take damage.");	
-}
+	else
+	{
+		show_debug_message("Player did not take damage.");	
+	}
 
-instance_destroy(self);
+	instance_destroy(self);
+}
 
 //if (!oPlayer.playerPressedParry)
 //{

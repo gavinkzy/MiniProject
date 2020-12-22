@@ -3,7 +3,8 @@ enum states
 	normal,
 	powerup,
 	slowMotion,
-	dead
+	dead,
+	almostDead
 }
 
 enum stages

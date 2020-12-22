@@ -1,7 +1,14 @@
 timeSinceBegun += 0.01;
 if (currentState != states.dead)
 {
-	vspSet = max(-2.5, vspSet - 0.001 * timeSinceBegun) * spdMultiplier;
+	if (currentState != states.slowMotion)
+	{
+		vspSet = max(-2.5, vspSet - 0.001 * timeSinceBegun) * spdMultiplier;
+	}
+	else
+	{
+		vspSet = min(-1, vspSet * spdMultiplier);
+	}
 	distanceMoved -= vspSet * spdMultiplier;
 }
 
@@ -31,9 +38,14 @@ if (currentComboCount >= comboThreshold)
 	currentState = states.powerup;
 }
 
-if (oPlayer.hp <= 0)
+if (oPlayer.hp <= -1)
 {
 	currentState = states.dead;
+}
+
+if (oPlayer.hp == 0)
+{
+	currentState = states.almostDead;	
 }
 
 switch currentState
@@ -67,8 +79,13 @@ switch currentState
 		{
 			if (!playerPressedParry) && (!parrySuccess) && (!gotHurt) sprite_index = sFalling;	
 		}
-		spdMultiplier = 0.10;
+		spdMultiplier = 0.90;
 		layer_vspeed("Backgrounds_1", vspSet - 0.05);
+		if (!triggered)
+		{
+			alarm[0] = 5 * room_speed;
+			triggered = true;
+		}
 		break;
 	case states.dead:
 		spdMultiplier = 0;
@@ -78,7 +95,11 @@ switch currentState
 		layer_vspeed("Backgrounds_1", 0);
 		with (oPlayer)
 		{
+			oPlayer.hp = -1;
 			sprite_index = sDead;
 			grv = 0.09;
 		}
+		break;
+	case states.almostDead:
+		show_debug_message("Almost dead");
 }

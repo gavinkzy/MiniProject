@@ -15,4 +15,5 @@ else if (sprite_index == sPower)
 if (sprite_index == sGotHurt)
 {
 	gotHurt = false;
+	playerPressedParry = false;
 }

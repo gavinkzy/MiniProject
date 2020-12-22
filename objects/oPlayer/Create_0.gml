@@ -12,3 +12,9 @@ maxhp = 3;
 hp = maxhp;
 
 gotHurt = false;
+
+deathBounceCount = 3;
+bounceYVelo = -2.8;
+bounceXVelo = 10;
+
+slowMoMultiplier = 1;
