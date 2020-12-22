@@ -18,3 +18,9 @@ bounceYVelo = -2.8;
 bounceXVelo = 10;
 
 slowMoMultiplier = 1;
+
+preGameJumpSpd = -5;
+
+hasJumped = false;
+
+playerTouchedHoneyJar = false;

@@ -2,6 +2,7 @@ vsp = vsp + grv;
 
 var isDead = (StateManager.currentState == states.dead);
 var isPowerUp = (StateManager.currentState == states.powerup);
+var isPreGame = (StateManager.currentState == states.preGame);
 
 key_left = keyboard_check(vk_left)
 key_right = keyboard_check(vk_right)
@@ -74,7 +75,6 @@ if (isDead)
 		}
 		slowMoMultiplier = min(0.9999, slowMoMultiplier+0.001);
 	}
-	show_debug_message(slowMoMultiplier);
 }
 
 //Horizontal collision with platform
@@ -88,23 +88,77 @@ if (place_meeting(x+hsp,y, oPlatform)) && (!isDead)
 }
 
 //Horizontal collision with Left Wall
-if (place_meeting(x+hsp,y, oWallLeft)) && (isDead)
+if (isDead)
 {
-	while (!place_meeting(x+sign(hsp),y, oWallLeft))
+	if (place_meeting(x+hsp,y, oWallLeft))
 	{
-		x = x + sign(hsp);	
+		while (!place_meeting(x+sign(hsp),y, oWallLeft))
+		{
+			x = x + sign(hsp);	
+		}
+		hsp = (bounceXVelo) - 3;
 	}
-	hsp = (bounceXVelo) - 3;
+
+	//Horizontal collision with Right Wall
+	if (place_meeting(x+hsp,y, oWallRight))
+	{
+		while (!place_meeting(x+sign(hsp),y, oWallRight))
+		{
+			x = x + sign(hsp);	
+		}
+		hsp = (-bounceXVelo) + 3;
+	}
 }
 
-//Horizontal collision with Right Wall
-if (place_meeting(x+hsp,y, oWallRight)) && (isDead)
+if (isPreGame)
 {
-	while (!place_meeting(x+sign(hsp),y, oWallRight))
+	var nearestLeftWall = instance_nearest(x,y,oWallLeft);
+	var nearestRightWall = instance_nearest(x,y,oWallRight);
+	if (place_meeting(x+hsp,y, oWallLeft))
 	{
-		x = x + sign(hsp);	
+		while (!place_meeting(x+sign(hsp),y, oWallLeft))
+		{
+			x = x - 1;	
+		}
+		hsp = 0;
 	}
-	hsp = (-bounceXVelo) + 3;
+
+	if (place_meeting(x+hsp,y, oWallRight))
+	{
+		while (!place_meeting(x+sign(hsp),y, oWallRight))
+		{
+			x = x + 1;	
+		}
+		hsp = 0;
+	}
+	
+	if (place_meeting(x,y+vsp, oStartingPlatform))
+	{
+		while (!place_meeting(x,y+sign(vsp), oStartingPlatform))
+		{
+			y = y +sign(vsp);	
+		}
+		vsp = 0;
+		hasJumped = false;
+	}
+	else
+	{
+		hasJumped = true;
+	}
+	
+	if (place_meeting(x+hsp,y, oStartingPlatform))
+	{
+		while (!place_meeting(x+sign(hsp),y, oStartingPlatform))
+		{
+			x = x +sign(hsp);	
+		}
+		hsp = 0;
+	}
+	
+	if (keyboard_check_pressed(vk_space)) && (!hasJumped)
+	{
+		vsp = preGameJumpSpd;
+	}
 }
 
 

@@ -1,5 +1,5 @@
 /// @description Parry Skill
-if (StateManager.currentState != states.almostDead)
+if (StateManager.currentState != states.almostDead) && (StateManager.currentState != states.preGame)
 {
 	playerPressedParry = true;
 	sprite_index = sParry;

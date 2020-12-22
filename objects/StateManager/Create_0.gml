@@ -1,10 +1,12 @@
 enum states 
 {
+	preGame,
 	normal,
 	powerup,
 	slowMotion,
 	dead,
-	almostDead
+	almostDead,
+	winningState
 }
 
 enum stages
@@ -27,13 +29,19 @@ vspSet = -1;
 hspSet = 0;
 distanceMoved = 0;
 
-spawningActive = true;
+spawningActive = false;
 
 comboThreshold = 10;
 currentComboCount = 0;
 
-currentState = states.normal;
+currentState = states.preGame;
 
 triggered = false;
+triggeredDeath = false;
 
 timeSinceBegun = 0;
+
+preGameGravity = 0.40;
+
+closeToStageChange = false;
+criticalStageChangeV = 0;
