@@ -1,6 +1,6 @@
 if (StateManager.currentState != states.dead)
 {
-	if (StateManager.currentState != states.powerup)
+	if (StateManager.currentState != states.powerup) && (!oPlayer.playerPressedParry)
 	{
 		with (oPlayer)
 		{

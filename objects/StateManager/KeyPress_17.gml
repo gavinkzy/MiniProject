@@ -1,4 +1,4 @@
-if (currentState == states.normal)
+if (currentState != states.slowMotion)
 {
 	currentState = states.slowMotion;
 }

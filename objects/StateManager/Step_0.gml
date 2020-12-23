@@ -87,13 +87,13 @@ switch currentState
 		spawningActive = false;
 		with (oPlayer)
 		{
-			if (bbox_left>(inst_189B19E6).x+sprite_get_width(sPlatform)/2)
+			//Game Start Condition
+			if (bbox_left>(inst_37BAE813).x + 32)
 			{
 				grv = 0;
 				vsp = 0;
 				hsp = 0;
 				other.currentState = states.normal;
-				
 			}
 		}
 		break;
@@ -122,6 +122,11 @@ switch currentState
 		}
 		break;
 	case states.slowMotion:
+		if (!savedSpd)
+		{
+			savedSpd = true;
+			topSpeed = vspSet;
+		}
 		with (oPlayer)
 		{
 			if (!playerPressedParry) && (!parrySuccess) && (!gotHurt) sprite_index = sFalling;	
@@ -130,7 +135,7 @@ switch currentState
 		layer_vspeed("Backgrounds_1", vspSet - 0.30);
 		if (!triggered)
 		{
-			alarm[0] = 5 * room_speed;
+			alarm[2] = 1 * room_speed;
 			triggered = true;
 		}
 		break;

@@ -45,3 +45,6 @@ preGameGravity = 0.40;
 
 closeToStageChange = false;
 criticalStageChangeV = 0;
+
+topSpeed = 0;
+savedSpd = false;

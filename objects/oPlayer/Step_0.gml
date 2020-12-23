@@ -91,42 +91,58 @@ if (place_meeting(x+hsp,y, oPlatform)) && (!isDead)
 //Horizontal collision with Left Wall
 if (isDead)
 {
-	if (place_meeting(x+hsp,y, oWallLeft))
+	if (place_meeting(x+hsp,y, oWallLeftRight))
 	{
-		while (!place_meeting(x+sign(hsp),y, oWallLeft))
+		while (!place_meeting(x+sign(hsp),y, oWallLeftRight))
 		{
 			x = x + sign(hsp);	
 		}
 		hsp = (bounceXVelo) - 3;
+		deadHasTouchedWall = true;
 	}
 
 	//Horizontal collision with Right Wall
-	if (place_meeting(x+hsp,y, oWallRight))
+	if (place_meeting(x+hsp,y, oWallRightLeft))
 	{
-		while (!place_meeting(x+sign(hsp),y, oWallRight))
+		while (!place_meeting(x+sign(hsp),y, oWallRightLeft))
 		{
 			x = x + sign(hsp);	
 		}
 		hsp = (-bounceXVelo) + 3;
+		deadHasTouchedWall = true;
 	}
+}
+
+if (deadHasTouchedWall)
+{
+	image_angle += 3;
 }
 
 if (isPreGame)
 {
-	var nearestLeftWall = instance_nearest(x,y,oWallLeft);
-	var nearestRightWall = instance_nearest(x,y,oWallRight);
-	if (place_meeting(x+hsp,y, oWallLeft))
+	var nearestLeftWall = instance_nearest(x,y,oWallLeftRight);
+	var nearestRightWall = instance_nearest(x,y,oWallRightLeft);
+	if (place_meeting(x+hsp,y, oWallLeftRight))
 	{
-		while (!place_meeting(x+sign(hsp),y, oWallLeft))
+		while (!place_meeting(x+sign(hsp),y, oWallLeftRight))
+		{
+			x = x - 1;	
+		}
+		hsp = 0;
+	}
+	
+	if (place_meeting(x+hsp,y, oWallLeftTopRight))
+	{
+		while (!place_meeting(x+sign(hsp),y, oWallLeftTopRight))
 		{
 			x = x - 1;	
 		}
 		hsp = 0;
 	}
 
-	if (place_meeting(x+hsp,y, oWallRight))
+	if (place_meeting(x+hsp,y, oWallRightLeft))
 	{
-		while (!place_meeting(x+sign(hsp),y, oWallRight))
+		while (!place_meeting(x+sign(hsp),y, oWallRightLeft))
 		{
 			x = x + 1;	
 		}

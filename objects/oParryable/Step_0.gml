@@ -5,17 +5,17 @@ if (bbox_bottom < 0)
 
 vsp = StateManager.vspSet + random_range(-1, 0);
 
-var nearestRightWall = instance_nearest(x,y,oWallRight);
-var nearestLeftWall = instance_nearest(x,y,oWallLeft);
-if (place_meeting(x+hsp,y,oWallLeft))
-{
-	hsp = -hsp;
-}
+//var nearestRightWall = instance_nearest(x,y,oWallRight);
+//var nearestLeftWall = instance_nearest(x,y,oWallLeft);
+//if (place_meeting(x+hsp,y,oWallLeft))
+//{
+//	hsp = -hsp;
+//}
 
-if (place_meeting(x+hsp,y,oWallRight))
-{
-	hsp = -hsp;
-}
+//if (place_meeting(x+hsp,y,oWallRight))
+//{
+//	hsp = -hsp;
+//}
 
 x = x + hsp;
 y = y + vsp;

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sPlatform",
-    "path": "sprites/sPlatform/sPlatform.yy",
+    "name": "sWallLeftCenter",
+    "path": "sprites/sWallLeftCenter/sWallLeftCenter.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Starting Platform",
+    "path": "folders/Objects/Starting Platform.yy",
   },
   "resourceVersion": "1.0",
   "name": "oStartingPlatform",

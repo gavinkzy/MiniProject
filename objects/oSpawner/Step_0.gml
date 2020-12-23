@@ -35,8 +35,8 @@ if (StateManager.spawningActive)
 
 	if (!hasSpawnedPlatforms)
 	{
-		startingXPos = (inst_2879C075).x + 32;
-		endingXPos = (inst_149E7C39).x;
+		startingXPos = (inst_2E704A28).x;
+		endingXPos = (inst_7B657F13).x+32;
 		numberOfTiles = ceil((endingXPos - startingXPos)/sprite_get_width(sBreakableTile));
 		if (StateManager.closeToStageChange)
 		{

@@ -26,3 +26,5 @@ hasJumped = false;
 playerTouchedHoneyJar = false;
 
 lastDrawnHeartPosX = display_get_gui_width()/2;
+
+deadHasTouchedWall=false;
