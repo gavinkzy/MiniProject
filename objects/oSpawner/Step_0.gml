@@ -66,13 +66,13 @@ else if (StateManager.currentState == states.winningState)
 {
 	if(!honeyJarSpawned) 
 	{
-		instance_create_layer(lastBreakableSpawnX,y+10,"HoneyJar",oHoneyJar);
+		instance_create_layer(lastBreakableSpawnX,y+100,"HoneyJar",oHoneyJar);
 		honeyJarSpawned = true;
 		show_debug_message("Honey Jar spawned");
 	}
 	else if(oPlayer.playerTouchedHoneyJar)
 		{
-			instance_create_layer(irandom_range(0,room_width), y+16,"HoneyJar",oFallingHoneyJar);
+			instance_create_layer(irandom_range(0,room_width), 0,"HoneyJar",oFallingHoneyJar);
 			show_debug_message("Spawned Falling Honey Jar");
 		}
 }

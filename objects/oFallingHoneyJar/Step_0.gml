@@ -5,3 +5,5 @@ if (bbox_bottom > room_height)
 
 x = x + hsp;
 y = y + vsp;
+
+image_angle += rotateAmount;

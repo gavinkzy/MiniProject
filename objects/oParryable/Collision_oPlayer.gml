@@ -15,7 +15,7 @@ if (StateManager.currentState != states.dead)
 		oPlayer.parrySuccess = true;
 		show_debug_message("Player parried successfully.");
 		StateManager.currentComboCount += 1;
-		var choice = irandom_range(1,2);
+		var choice = 1;
 		switch choice
 		{
 			case 1:
@@ -29,10 +29,10 @@ if (StateManager.currentState != states.dead)
 				}
 				show_debug_message("Gained HP.");
 				break;
-			case 2:
-				//grant slowmo ability
-				show_debug_message("Gained slowmo ability.");
-				break;
+			//case 2:
+			//	//grant slowmo ability
+			//	show_debug_message("Gained slowmo ability.");
+			//	break;
 		}
 		ScreenShake(3,5);
 		instance_destroy(self);
