@@ -21,8 +21,6 @@ else
 		lastCheckPoint = StateManager.distanceMoved;
 	}
 }
-	
-
 
 if (StateManager.spawningActive)
 {
@@ -44,12 +42,12 @@ if (StateManager.spawningActive)
 		}
 		else
 		{
-			posChosen = irandom_range(3, numberOfTiles-3);
+			posChosen = irandom_range(6, numberOfTiles-6);
 		}
 		lastSpawnXPos = startingXPos;
 		for (i = 0;  i < numberOfTiles; i++)
 		{
-			if (i < posChosen + irandom_range(1,3)) && (i > posChosen - irandom_range(1,3))
+			if (i < posChosen + irandom_range(1,3)) && (i > posChosen - irandom_range(1,5))
 			{
 				instance_create_layer(lastSpawnXPos,y+20,"Platforms",oBreakableTile);
 				lastBreakableSpawnX = lastSpawnXPos;
@@ -74,7 +72,7 @@ else if (StateManager.currentState == states.winningState)
 	}
 	else if(oPlayer.playerTouchedHoneyJar)
 		{
-			instance_create_layer(irandom_range(0,room_width), 0,"HoneyJar",oFallingHoneyJar);
+			instance_create_layer(irandom_range(0,room_width), y+16,"HoneyJar",oFallingHoneyJar);
 			show_debug_message("Spawned Falling Honey Jar");
 		}
 }

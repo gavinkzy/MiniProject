@@ -1,5 +1,5 @@
 {
-  "bboxMode": 0,
+  "bboxMode": 2,
   "collisionKind": 1,
   "type": 0,
   "origin": 4,
@@ -8,8 +8,8 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 8,
-  "bbox_right": 21,
-  "bbox_top": 1,
+  "bbox_right": 20,
+  "bbox_top": 9,
   "bbox_bottom": 29,
   "HTile": false,
   "VTile": false,
@@ -72,8 +72,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e8135acd-22d2-4bc8-957d-6719d676c260","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Player",
+    "path": "folders/Sprites/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "sDead",

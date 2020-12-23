@@ -2,9 +2,9 @@ DrawSetText(c_white, fDefault, fa_center, fa_top);
 var xx = display_get_gui_width()/2;
 lastDrawnHeartPosX = xx;
 var yy = display_get_gui_height()/2 - 300;
-draw_text(xx, yy, string(round(StateManager.distanceMoved)) + "m" );
+if (StateManager.distanceMoved != 0) draw_text(xx, yy, string(round(StateManager.distanceMoved)) + "m" );
 draw_text(xx-30, yy-60-8, "HP: ");
-draw_text(xx, yy-40, "Combo Count: " +string(StateManager.currentComboCount));
+if (StateManager.currentComboCount != 0) draw_text(xx, yy-40, "Combo: " +string(StateManager.currentComboCount));
 
 if (hp > 0)
 	for (var i=0;i<hp;i++)

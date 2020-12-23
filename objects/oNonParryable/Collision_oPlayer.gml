@@ -13,7 +13,6 @@ if (StateManager.currentState != states.dead)
 	{
 		show_debug_message("Player did not take damage.");	
 	}
-
 	instance_destroy(self);
 }
 

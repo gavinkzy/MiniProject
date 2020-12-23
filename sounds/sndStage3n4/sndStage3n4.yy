@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sndBGM.sid",
-  "duration": 0.0,
+  "soundFile": "sndStage3n4.mp3",
+  "duration": 140.726639,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sndBGM",
+  "name": "sndStage3n4",
   "tags": [],
   "resourceType": "GMSound",
 }

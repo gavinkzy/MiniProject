@@ -38,13 +38,23 @@ currentState = states.preGame;
 
 triggered = false;
 triggeredDeath = false;
+triggeredDeath2 = false;
 
 timeSinceBegun = 0;
 
 preGameGravity = 0.40;
 
 closeToStageChange = false;
-criticalStageChangeV = 0;
+criticalStageChangeV = 800;
 
 topSpeed = 0;
 savedSpd = false;
+
+if (!audio_is_playing(sndStage1n2))
+{
+	audio_stop_all();
+	audio_play_sound(sndStage1n2,1,1);
+}
+
+playedMusic = false;
+playedLastMusic = false;

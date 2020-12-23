@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sParryable",
-    "path": "sprites/sParryable/sParryable.yy",
+    "name": "sTree",
+    "path": "sprites/sTree/sTree.yy",
   },
   "solid": false,
   "visible": true,

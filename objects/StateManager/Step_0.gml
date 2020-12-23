@@ -29,36 +29,52 @@ if (currentState != states.dead)
 //wall stuff
 if (currentState != states.winningState)
 {
-	if (distanceMoved > 1000)
+	if (distanceMoved > 1000) && (distanceMoved < 5000)
 	{
 		currentStage = stages.two;
-		criticalStageChangeV = 1000;
+		criticalStageChangeV = 4800;
 		oSpawner.spawnDistInterval = 150;
 	}
 
-	if (distanceMoved > 5000)
-	{
+	if (distanceMoved > 5000) && (distanceMoved < 10000)
+	{	
+		audio_stop_sound(sndStage1n2);
+		if (!playedMusic)
+		{
+			audio_play_sound(sndStage3n4,1,1);
+			playedMusic = true;
+		}
 		currentStage = stages.three;
-		criticalStageChangeV = 2000;
+		criticalStageChangeV = 9800;
 		oSpawner.spawnDistInterval = 100;
 	}
 
-	if (distanceMoved > 10000)
+	if (distanceMoved > 10000) && (distanceMoved < 15000)
 	{
 		currentStage = stages.four;
-		criticalStageChangeV = 3000;
+		criticalStageChangeV = 14800;
 		oSpawner.spawnDistInterval = 80;
 	}
 }
 
 if (distanceMoved > 15000)
 {
+	if (oPlayer.playerTouchedHoneyJar) && (!playedLastMusic)
+	{
+		audio_stop_sound(sndStage3n4);
+		audio_play_sound(sndStage5,1,1);
+		playedLastMusic = true;
+	}
 	currentState = states.winningState;
 }
 
-if (distanceMoved + 200 > criticalStageChangeV)
+if (distanceMoved >= criticalStageChangeV)
 {
 	closeToStageChange = true;
+}
+else
+{
+	closeToStageChange = false;	
 }
 
 if (currentComboCount >= comboThreshold)
@@ -154,6 +170,11 @@ switch currentState
 		{
 			alarm[1] = 5 * room_speed;
 			triggeredDeath = true;
+		}
+		if (!triggeredDeath2)
+		{
+			alarm[3] = 8 * room_speed;
+			triggeredDeath2 = true;
 		}
 		break;
 	case states.almostDead:

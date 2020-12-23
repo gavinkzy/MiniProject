@@ -158,10 +158,6 @@ if (isPreGame)
 		vsp = 0;
 		hasJumped = false;
 	}
-	else
-	{
-		hasJumped = true;
-	}
 	
 	if (place_meeting(x+hsp,y, oStartingPlatform))
 	{
@@ -175,6 +171,20 @@ if (isPreGame)
 	if (keyboard_check_pressed(vk_space)) && (!hasJumped)
 	{
 		vsp = preGameJumpSpd;
+		sprite_index = sJump;
+		hasJumped = true;
+	}
+	
+	if (!hasJumped)
+	{
+		if (playerPressedMove)
+		{
+			if (hsp != 0) sprite_index = sWalking;	
+		}
+		else
+		{
+			sprite_index = sIdle;	
+		}
 	}
 }
 
