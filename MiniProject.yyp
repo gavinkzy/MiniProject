@@ -47,6 +47,7 @@
     {"id":{"name":"oWallLeft","path":"objects/oWallLeft/oWallLeft.yy",},"order":0,},
     {"id":{"name":"sndStage5","path":"sounds/sndStage5/sndStage5.yy",},"order":2,},
     {"id":{"name":"sndStage3n4","path":"sounds/sndStage3n4/sndStage3n4.yy",},"order":1,},
+    {"id":{"name":"Sound4","path":"sounds/Sound4/Sound4.yy",},"order":3,},
     {"id":{"name":"oWallLeftCenter","path":"objects/oWallLeftCenter/oWallLeftCenter.yy",},"order":2,},
     {"id":{"name":"oWallLeftTop","path":"objects/oWallLeftTop/oWallLeftTop.yy",},"order":5,},
     {"id":{"name":"sKiwiIdle","path":"sprites/sKiwiIdle/sKiwiIdle.yy",},"order":1,},
